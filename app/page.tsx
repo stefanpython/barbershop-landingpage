@@ -1,47 +1,56 @@
 import Image from "next/image";
 import Link from "next/link";
-import { MapPin, Phone, Clock, Star, ChevronDown, Globe } from "lucide-react";
-// import { Button } from "@/components/ui/button";
+import {
+  MapPin,
+  Phone,
+  Clock,
+  Star,
+  ChevronDown,
+  Globe,
+  Mail,
+  MessageSquare,
+} from "lucide-react";
+import ScrollLink from "@/components/scroll-link";
 
 export default function Home() {
   return (
     <div className="flex flex-col min-h-screen bg-black text-white">
-      <header className="border-b border-zinc-800">
+      <header className="border-b border-zinc-800 fixed top-0 w-full z-50 bg-black/95 backdrop-blur-sm">
         <div className="container mx-auto px-4 py-4 flex items-center justify-between">
           <Link href="/" className="flex items-center">
             <div className="text-amber-500 font-bold text-2xl">FAMA</div>
           </Link>
           <nav className="hidden md:flex items-center space-x-8">
-            <Link
-              href="/"
+            <ScrollLink
+              href="#home"
               className="text-white hover:text-amber-500 transition"
             >
               Home
-            </Link>
-            <Link
-              href="/about"
+            </ScrollLink>
+            <ScrollLink
+              href="#about"
               className="text-white hover:text-amber-500 transition"
             >
               About
-            </Link>
-            <Link
-              href="/services"
+            </ScrollLink>
+            <ScrollLink
+              href="#services"
               className="text-white hover:text-amber-500 transition"
             >
               Services
-            </Link>
-            <Link
-              href="/gallery"
+            </ScrollLink>
+            <ScrollLink
+              href="#gallery"
               className="text-white hover:text-amber-500 transition"
             >
               Gallery
-            </Link>
-            <Link
-              href="/contact"
+            </ScrollLink>
+            <ScrollLink
+              href="#contact"
               className="text-white hover:text-amber-500 transition"
             >
               Contact
-            </Link>
+            </ScrollLink>
           </nav>
           <div className="flex items-center space-x-4">
             <div className="hidden md:flex items-center space-x-4">
@@ -63,8 +72,9 @@ export default function Home() {
         </div>
       </header>
 
-      <main className="flex-1">
-        <section className="py-16 md:py-24 lg:py-32 relative">
+      <main className="flex-1 pt-16">
+        {/* Hero Section */}
+        <section id="home" className="py-16 md:py-24 lg:py-32 relative">
           <div className="container mx-auto px-4 grid md:grid-cols-2 gap-12 items-center">
             <div className="space-y-6">
               <div className="text-amber-500">
@@ -93,10 +103,12 @@ export default function Home() {
               </div>
 
               <div className="flex flex-col sm:flex-row gap-4">
-                <button className="bg-zinc-900 hover:bg-zinc-800 text-white border border-zinc-700 w-full sm:w-auto flex items-center justify-center">
-                  <Phone className="h-4 w-4 mr-2" />
-                  Our Services
-                </button>
+                <ScrollLink href="#services">
+                  <button className="bg-zinc-900 hover:bg-zinc-800 text-white border border-zinc-700 w-full sm:w-auto flex items-center justify-center">
+                    <Phone className="h-4 w-4 mr-2" />
+                    Our Services
+                  </button>
+                </ScrollLink>
                 <button className="bg-amber-500 hover:bg-amber-600 text-black w-full sm:w-auto flex items-center justify-center">
                   Book Now
                 </button>
@@ -114,11 +126,83 @@ export default function Home() {
           </div>
 
           <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2">
-            <ChevronDown className="h-8 w-8 text-amber-500 animate-bounce" />
+            <ScrollLink href="#about">
+              <ChevronDown className="h-8 w-8 text-amber-500 animate-bounce cursor-pointer" />
+            </ScrollLink>
           </div>
         </section>
 
-        <section className="py-16 bg-zinc-900">
+        {/* About Section */}
+        <section id="about" className="py-16 bg-zinc-900">
+          <div className="container mx-auto px-4">
+            <div className="text-center mb-12">
+              <h2 className="text-3xl font-bold mb-2">About Us</h2>
+              <p className="text-zinc-400 max-w-2xl mx-auto">
+                Our story, our team, and our commitment to excellence
+              </p>
+            </div>
+
+            <div className="grid md:grid-cols-2 gap-12 items-center">
+              <div className="relative h-[500px] rounded-xl overflow-hidden">
+                <Image
+                  src="/placeholder.svg?height=1000&width=800"
+                  alt="Fama Barber Shop Interior"
+                  fill
+                  className="object-cover"
+                />
+              </div>
+
+              <div className="space-y-6">
+                <h3 className="text-2xl font-bold">Our Story</h3>
+                <p className="text-zinc-400">
+                  Founded in 2015, Fama Barber Shop and Beauty Salon has been
+                  providing premium haircuts and styling services to the Denton
+                  community. What started as a small barbershop has grown into a
+                  full-service salon offering a wide range of grooming services
+                  for men and women.
+                </p>
+
+                <h3 className="text-2xl font-bold">Our Approach</h3>
+                <p className="text-zinc-400">
+                  At Fama, we believe that a great haircut is more than just a
+                  service—its an experience. Our expert barbers and stylists are
+                  dedicated to providing personalized attention and creating
+                  looks that enhance your natural features while reflecting your
+                  personal style.
+                </p>
+
+                <h3 className="text-2xl font-bold">Our Commitment</h3>
+                <p className="text-zinc-400">
+                  We are committed to using high-quality products, maintaining
+                  the highest standards of cleanliness, and providing
+                  exceptional customer service. Whether youre looking for a
+                  classic cut, a modern style, or a complete transformation, our
+                  team is here to make it happen.
+                </p>
+
+                <div className="flex gap-4 pt-4">
+                  <div className="text-center">
+                    <div className="text-3xl font-bold text-amber-500">8+</div>
+                    <p className="text-zinc-400">Years of Experience</p>
+                  </div>
+                  <div className="text-center">
+                    <div className="text-3xl font-bold text-amber-500">10+</div>
+                    <p className="text-zinc-400">Expert Barbers</p>
+                  </div>
+                  <div className="text-center">
+                    <div className="text-3xl font-bold text-amber-500">
+                      5000+
+                    </div>
+                    <p className="text-zinc-400">Happy Customers</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Services Section */}
+        <section id="services" className="py-16">
           <div className="container mx-auto px-4">
             <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-12">
               <div>
@@ -136,7 +220,7 @@ export default function Home() {
               {services.map((service, index) => (
                 <div
                   key={index}
-                  className="bg-black p-6 rounded-lg border border-zinc-800 hover:border-amber-500 transition"
+                  className="bg-zinc-900 p-6 rounded-lg border border-zinc-800 hover:border-amber-500 transition"
                 >
                   <div className="text-amber-500 mb-4">{service.icon}</div>
                   <h3 className="text-xl font-bold mb-2">{service.name}</h3>
@@ -151,6 +235,42 @@ export default function Home() {
                   </div>
                 </div>
               ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Gallery Section */}
+        <section id="gallery" className="py-16 bg-zinc-900">
+          <div className="container mx-auto px-4">
+            <div className="text-center mb-12">
+              <h2 className="text-3xl font-bold mb-2">Our Gallery</h2>
+              <p className="text-zinc-400 max-w-2xl mx-auto">
+                Check out our work and the atmosphere at our salon
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+              {galleryImages.map((image, index) => (
+                <div
+                  key={index}
+                  className="relative aspect-square overflow-hidden rounded-lg hover:opacity-90 transition"
+                >
+                  <Image
+                    src={`/placeholder.svg?height=600&width=600&text=Haircut${
+                      index + 1
+                    }`}
+                    alt={`Gallery Image ${index + 1}`}
+                    fill
+                    className="object-cover hover:scale-105 transition duration-300"
+                  />
+                </div>
+              ))}
+            </div>
+
+            <div className="text-center mt-8">
+              <button className="bg-amber-500 hover:bg-amber-600 text-black">
+                View Full Gallery
+              </button>
             </div>
           </div>
         </section>
@@ -189,6 +309,9 @@ export default function Home() {
                   <span className="ml-2 font-bold">4.6</span>
                 </div>
                 <p className="text-zinc-400">Based on 116+ reviews</p>
+                <div className="mt-4 text-zinc-400 italic">
+                  Costly compared to other barbershops with better haircuts.
+                </div>
               </div>
 
               <div className="bg-zinc-900 p-6 rounded-lg">
@@ -240,7 +363,137 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="py-16 bg-zinc-900">
+        {/* Contact Section */}
+        <section id="contact" className="py-16 bg-zinc-900">
+          <div className="container mx-auto px-4">
+            <div className="text-center mb-12">
+              <h2 className="text-3xl font-bold mb-2">Contact Us</h2>
+              <p className="text-zinc-400 max-w-2xl mx-auto">
+                Get in touch with us for appointments or inquiries
+              </p>
+            </div>
+
+            <div className="grid md:grid-cols-2 gap-12">
+              <div>
+                <div className="space-y-8">
+                  <div className="flex items-start space-x-4">
+                    <div className="bg-zinc-800 p-3 rounded-lg">
+                      <Phone className="h-6 w-6 text-amber-500" />
+                    </div>
+                    <div>
+                      <h3 className="font-bold mb-1">Phone</h3>
+                      <p className="text-zinc-400">+1 940-612-9127</p>
+                    </div>
+                  </div>
+
+                  <div className="flex items-start space-x-4">
+                    <div className="bg-zinc-800 p-3 rounded-lg">
+                      <Mail className="h-6 w-6 text-amber-500" />
+                    </div>
+                    <div>
+                      <h3 className="font-bold mb-1">Email</h3>
+                      <p className="text-zinc-400">info@famabarbershop.com</p>
+                    </div>
+                  </div>
+
+                  <div className="flex items-start space-x-4">
+                    <div className="bg-zinc-800 p-3 rounded-lg">
+                      <MapPin className="h-6 w-6 text-amber-500" />
+                    </div>
+                    <div>
+                      <h3 className="font-bold mb-1">Address</h3>
+                      <p className="text-zinc-400">
+                        500 N Bell Ave #109, Denton, TX 76209, United States
+                      </p>
+                    </div>
+                  </div>
+
+                  <div className="flex items-start space-x-4">
+                    <div className="bg-zinc-800 p-3 rounded-lg">
+                      <Clock className="h-6 w-6 text-amber-500" />
+                    </div>
+                    <div>
+                      <h3 className="font-bold mb-1">Working Hours</h3>
+                      <p className="text-zinc-400">
+                        Mon-Fri: 9:00 AM - 7:00 PM
+                      </p>
+                      <p className="text-zinc-400">Sat: 10:00 AM - 6:00 PM</p>
+                      <p className="text-zinc-400">Sun: Closed</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div>
+                <form className="space-y-4">
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div>
+                      <label
+                        htmlFor="name"
+                        className="block text-sm font-medium mb-1"
+                      >
+                        Name
+                      </label>
+                      <input
+                        type="text"
+                        id="name"
+                        className="w-full px-4 py-3 bg-zinc-800 border border-zinc-700 rounded-lg focus:outline-none focus:border-amber-500"
+                        placeholder="Your Name"
+                      />
+                    </div>
+                    <div>
+                      <label
+                        htmlFor="email"
+                        className="block text-sm font-medium mb-1"
+                      >
+                        Email
+                      </label>
+                      <input
+                        type="email"
+                        id="email"
+                        className="w-full px-4 py-3 bg-zinc-800 border border-zinc-700 rounded-lg focus:outline-none focus:border-amber-500"
+                        placeholder="Your Email"
+                      />
+                    </div>
+                  </div>
+                  <div>
+                    <label
+                      htmlFor="subject"
+                      className="block text-sm font-medium mb-1"
+                    >
+                      Subject
+                    </label>
+                    <input
+                      type="text"
+                      id="subject"
+                      className="w-full px-4 py-3 bg-zinc-800 border border-zinc-700 rounded-lg focus:outline-none focus:border-amber-500"
+                      placeholder="Subject"
+                    />
+                  </div>
+                  <div>
+                    <label
+                      htmlFor="message"
+                      className="block text-sm font-medium mb-1"
+                    >
+                      Message
+                    </label>
+                    <textarea
+                      id="message"
+                      rows={5}
+                      className="w-full px-4 py-3 bg-zinc-800 border border-zinc-700 rounded-lg focus:outline-none focus:border-amber-500 resize-none"
+                      placeholder="Your Message"
+                    ></textarea>
+                  </div>
+                  <button className="w-full bg-amber-500 hover:bg-amber-600 text-black">
+                    <MessageSquare className="h-4 w-4 mr-2" /> Send Message
+                  </button>
+                </form>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section className="py-16">
           <div className="container mx-auto px-4 text-center">
             <h2 className="text-3xl font-bold mb-8">Ready for a Fresh Look?</h2>
             <button className="bg-amber-500 hover:bg-amber-600 text-black text-lg px-8 py-6">
@@ -420,4 +673,15 @@ const services = [
       "Relaxing traditional straight razor shave with hot towel treatment.",
     price: 30,
   },
+];
+
+const galleryImages = [
+  { id: 1 },
+  { id: 2 },
+  { id: 3 },
+  { id: 4 },
+  { id: 5 },
+  { id: 6 },
+  { id: 7 },
+  { id: 8 },
 ];
