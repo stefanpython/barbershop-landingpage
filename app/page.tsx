@@ -22,7 +22,7 @@ export default function Home() {
           </Link>
           <nav className="hidden md:flex items-center space-x-8">
             <ScrollLink
-              href="#home"
+              href="#homes"
               className="text-white hover:text-amber-500 transition"
             >
               Home
@@ -74,7 +74,7 @@ export default function Home() {
 
       <main className="flex-1 pt-16">
         {/* Hero Section */}
-        <section id="home" className="py-16 md:py-24 lg:py-32 relative">
+        <section id="homes" className="py-16 md:py-24 lg:py-32 relative">
           <div className="container mx-auto px-4 grid md:grid-cols-2 gap-12 items-center">
             <div className="space-y-6">
               <div className="text-amber-500">
@@ -116,7 +116,7 @@ export default function Home() {
             </div>
             <div className="relative h-[400px] rounded-xl overflow-hidden">
               <Image
-                src="/placeholder.svg?height=800&width=600"
+                src="/team.jpg"
                 alt="Barbers at Fama Barber Shop"
                 fill
                 className="object-cover"
@@ -145,7 +145,7 @@ export default function Home() {
             <div className="grid md:grid-cols-2 gap-12 items-center">
               <div className="relative h-[500px] rounded-xl overflow-hidden">
                 <Image
-                  src="/placeholder.svg?height=1000&width=800"
+                  src="/location.jpg"
                   alt="Fama Barber Shop Interior"
                   fill
                   className="object-cover"
@@ -256,9 +256,7 @@ export default function Home() {
                   className="relative aspect-square overflow-hidden rounded-lg hover:opacity-90 transition"
                 >
                   <Image
-                    src={`/placeholder.svg?height=600&width=600&text=Haircut${
-                      index + 1
-                    }`}
+                    src={image.src}
                     alt={`Gallery Image ${index + 1}`}
                     fill
                     className="object-cover hover:scale-105 transition duration-300"
@@ -676,12 +674,12 @@ const services = [
 ];
 
 const galleryImages = [
-  { id: 1 },
-  { id: 2 },
-  { id: 3 },
-  { id: 4 },
-  { id: 5 },
-  { id: 6 },
-  { id: 7 },
-  { id: 8 },
+  { id: 1, src: "/barber.jpeg" },
+  { id: 2, src: "/barber.jpeg" },
+  { id: 3, src: "/barber.jpeg" },
+  { id: 4, src: "/barber.jpeg" },
+  { id: 5, src: "/barber.jpeg" },
+  { id: 6, src: "/barber.jpeg" },
+  { id: 7, src: "/barber.jpeg" },
+  { id: 8, src: "/barber.jpeg" },
 ];
